@@ -60,7 +60,10 @@ dependencies {
     api('com.netflix.archaius:archaius-aws:0.7.7')
 
     api(group: 'io.springfox', name: 'springfox-swagger2', version:'2.9.2')
-    api group: 'io.springfox', name: 'springfox-swagger-ui', version:'2.10.0'
+    //api group: 'io.springfox', name: 'springfox-swagger-ui', version:'2.10.0'
+    // https://mvnrepository.com/artifact/io.springfox/springfox-swagger-ui
+     implementation group: 'io.springfox', name: 'springfox-swagger-ui', version: '3.0.0'
+
     api group: 'com.google.code.simple-spring-memcached', name: 'spring-cache', version: '3.1.0'
     //api group: 'com.google.code.simple-spring-memcached', name: 'xmemcached-provider', version: '3.1.0'
     // https://mvnrepository.com/artifact/com.google.code.simple-spring-memcached/spring-cache
