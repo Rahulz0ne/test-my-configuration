@@ -44,13 +44,13 @@ bootJar{
 dependencies {
     implementation platform("org.springframework.cloud:spring-cloud-dependencies:$springCloudVersion")
     api('org.springframework:spring-test:5.3.23')
-    api('org.springframework.boot:spring-boot-test-autoconfigure:2.7.3')
-    api('com.amazonaws:aws-java-sdk-s3:1.12.332')
-    api('commons-configuration:commons-configuration:1.10')
-    api('org.springframework.cloud:spring-cloud-starter-sleuth:3.1.5')
+	api('org.springframework.boot:spring-boot-test-autoconfigure:2.7.5')
+	api('com.amazonaws:aws-java-sdk-s3:1.12.341')
+	api('commons-configuration:commons-configuration:1.10')
+	api('org.springframework.cloud:spring-cloud-starter-sleuth:3.1.5')
 
-    api('org.springframework.boot:spring-boot-starter-validation:2.7.3')
-    api('org.springframework.boot:spring-boot-starter-websocket:2.7.3')
+	api('org.springframework.boot:spring-boot-starter-validation:2.7.5')
+	api('org.springframework.boot:spring-boot-starter-websocket:2.7.5')
     api('org.springframework:spring-context-support:5.3.22')
 
     api('com.netflix.archaius:archaius-core:0.7.7')
@@ -90,10 +90,10 @@ dependencies {
     providedRuntime('org.springframework.boot:spring-boot-starter-tomcat:2.7.5')
     testImplementation('org.springframework.boot:spring-boot-starter-test:2.7.5')
 
-    providedRuntime("org.apache.tomcat.embed:tomcat-embed-jasper:10.1.0")
+    //providedRuntime("org.apache.tomcat.embed:tomcat-embed-jasper:10.1.0")
     //when running locally, comment out the providedRuntime above, and uncomment the compile below.
-    api("org.apache.tomcat.embed:tomcat-embed-jasper:9.0.65")
-    api('org.apache.tomcat.embed:tomcat-embed-core:9.0.65')
+    //api("org.apache.tomcat.embed:tomcat-embed-jasper:9.0.65")
+    //api('org.apache.tomcat.embed:tomcat-embed-core:9.0.65')
 
     api('net.sf.uadetector:uadetector-core:0.9.22')
     api('net.sf.uadetector:uadetector-resources:2014.10')
