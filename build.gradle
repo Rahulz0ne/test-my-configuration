@@ -52,7 +52,7 @@ dependencies {
 	api('commons-configuration:commons-configuration:1.10')
 	api('org.springframework.cloud:spring-cloud-starter-sleuth:3.1.5')
 
-	api('org.springframework.boot:spring-boot-starter-validation:2.7.5')
+	//api('org.springframework.boot:spring-boot-starter-validation:2.7.5')
 	api('org.springframework.boot:spring-boot-starter-websocket:2.7.5')
     api('org.springframework:spring-context-support:5.3.22')
 
@@ -114,7 +114,10 @@ dependencies {
     implementation group: 'com.fasterxml.jackson.core', name: 'jackson-databind', version: '2.14.0'
     // https://mvnrepository.com/artifact/com.google.guava/guava
     implementation group: 'com.google.guava', name: 'guava', version: '31.1-jre'
-    implementation ("org.yaml:snakeyaml@1.32!!")
+    //implementation ("org.yaml:snakeyaml@1.32!!")
+    api('org.springframework.boot:spring-boot-starter-validation:2.7.5'){
+   exclude group: 'org.yaml.snakeyml', module: '1.31'
+   }
 
 }
 /*
