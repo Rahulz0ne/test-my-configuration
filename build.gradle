@@ -102,8 +102,8 @@ dependencies {
 
     providedRuntime("org.apache.tomcat.embed:tomcat-embed-jasper:10.1.0")
     //when running locally, comment out the providedRuntime above, and uncomment the compile below.
-    api("org.apache.tomcat.embed:tomcat-embed-jasper:9.0.65")
-    api('org.apache.tomcat.embed:tomcat-embed-core:9.0.65')
+    api("org.apache.tomcat.embed:tomcat-embed-jasper:10.1.0")
+    api('org.apache.tomcat.embed:tomcat-embed-core:10.1.1')
 
     api('net.sf.uadetector:uadetector-core:0.9.22')
     api('net.sf.uadetector:uadetector-resources:2014.10')
