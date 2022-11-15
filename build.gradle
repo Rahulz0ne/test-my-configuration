@@ -42,6 +42,8 @@ configurations {
 bootJar{
     jar.enabled = true
     bootJar.enabled = false
+    rootSpec.exclude("snakeyaml*.jar")    
+    rootSpec.exclude("validation-api*.jar")
 }
 
 dependencies {
