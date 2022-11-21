@@ -35,7 +35,7 @@ dependencies {
     implementation('org.springframework.boot:spring-boot-starter-hateoas:2.7.3')
     implementation('org.springframework.boot:spring-boot-starter-mobile:2.0.0.M2')
     //runtime("org.springframework.boot:spring-boot-properties-migrator")
-    implementation ('org.yaml:snakeyaml:1.32')
+    //implementation ('org.yaml:snakeyaml:1.32')
     api 'com.fasterxml.jackson.core:jackson-core:2.8.6'
 
 
