@@ -13,7 +13,12 @@ apply plugin: 'org.springframework.boot'
 apply plugin: 'io.spring.dependency-management'
 
 
+configurations {
+    providedRuntime
+    all*.exclude group: 'org.slf4j', module: 'log4j-over-slf4j'
+    all*.exclude group: 'org.apache.logging.log4j', module: 'log4j-slf4j-impl'
 
+}
 
 
 configurations {
