@@ -85,7 +85,7 @@ dependencies {
     api group: 'com.google.guava', name: 'guava', version: '31.1-jre'
     //runtime("org.springframework.boot:spring-boot-properties-migrator")
     api 'org.yaml:snakeyaml:1.31'
-    api 'com.fasterxml.jackson.core:jackson-core:2.7.7'
+    api 'com.fasterxml.jackson.core:jackson-core:2.8.6'
 }
 /*
 dependencyManagement {
