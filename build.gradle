@@ -87,7 +87,8 @@ dependencies {
     implementation("io.dropwizard.metrics:metrics-jvm:${metricsVersion}")
     implementation("io.dropwizard.metrics:metrics-graphite:${metricsVersion}")
     implementation("io.dropwizard.metrics:metrics-core:${metricsVersion}")
-    implementation("org.yaml:snakeyaml@1.31")
+    api 'org.yaml:snakeyaml:1.32'
+
 
     providedRuntime("org.springframework.boot:spring-boot-starter-tomcat")
 }
