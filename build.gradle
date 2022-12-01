@@ -71,9 +71,10 @@ dependencies {
     //implementation group: 'de.codecentric', name: 'spring-boot-admin-server', version: '2.7.3'
     //implementation group: 'de.codecentric', name: 'spring-boot-admin-server-ui', version: '2.7.3'
 
-
-
-    implementation("com.netflix.turbine:turbine-core:1.0.0"){exclude group: 'org.codehaus.jackson', module: 'jackson-mapper-asl'}
+   
+      implementation group: 'com.netflix.turbine', name: 'turbine-core', version: '2.0.0-DP.2'
+      
+    //implementation("com.netflix.turbine:turbine-core:1.0.0"){exclude group: 'org.codehaus.jackson', module: 'jackson-mapper-asl'}
         implementation("com.netflix.turbine:turbine-contrib:1.4.16"){exclude group:'log4j',module: 'log4j'}
     implementation("com.netflix.turbine:turbine-web:1.0.0"){exclude group: 'org.slf4j', module: 'slf4j-log4j12'}
     
