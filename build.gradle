@@ -91,13 +91,14 @@ dependencies {
     providedRuntime("org.springframework.boot:spring-boot-starter-tomcat")
     
    // =========new dependency added=======
-    api 'org.yaml:snakeyaml:1.32'
+    implementation ('org.yaml:snakeyaml:1.32')
     implementation ('com.google.guava:guava:24.1.1-jre')
     implementation ('com.fasterxml.jackson.core:jackson-databind:2.13.4.2')
     implementation ('commons-io:commons-io:2.7')
    implementation("com.thoughtworks.xstream:xstream:1.4.19")
-   implementation('org.apache.zookeeper:zookeeper:3.4.10')
-
+   implementation('org.apache.zookeeper:zookeeper:3.4.14')
+   implementation('org.codehaus.jettison:jettison:1.5.1')
+   
 
 
    
