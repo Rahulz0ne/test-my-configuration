@@ -79,7 +79,7 @@ dependencies {
     implementation("com.netflix.turbine:turbine-web:1.0.0"){exclude group: 'org.slf4j', module: 'slf4j-log4j12'}
     
 //  implementation("de.codecentric:spring-boot-admin-starter-server:${springBootAdminVersion}")
-    implementation("com.google.code.gson:gson:2.8.6")
+    implementation("com.google.code.gson:gson:2.8.9")
    // implementation("com.googlecode.json-simple:json-simple:1.1.1")
     implementation("com.googlecode.json-simple:json-simple:1.1.1"){exclude group:'junit',module: 'junit'}
 
