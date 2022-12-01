@@ -98,7 +98,8 @@ dependencies {
    implementation group: 'com.fasterxml.jackson.core', name: 'jackson-databind', version: '2.14.1'
     implementation ('commons-io:commons-io:2.7')
    implementation("com.thoughtworks.xstream:xstream:1.4.19")
-   implementation('org.apache.zookeeper:zookeeper:3.4.14')
+   //implementation('org.apache.zookeeper:zookeeper:3.4.14')
+   implementation 'org.apache.zookeeper:zookeeper:3.8.0'
    implementation('org.codehaus.jettison:jettison:1.5.1')
    implementation ('junit:junit:4.13.1')
    implementation ('org.apache.logging.log4j:log4j:2.17.1')  
