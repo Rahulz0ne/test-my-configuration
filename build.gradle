@@ -89,6 +89,12 @@ dependencies {
     implementation("io.dropwizard.metrics:metrics-core:${metricsVersion}")
 
     providedRuntime("org.springframework.boot:spring-boot-starter-tomcat")
+    
+   // =========new dependency added=======
+    api 'org.yaml:snakeyaml:1.32'
+    implementation ('com.google.guava:guava:24.1.1-jre')
+    implementation ('com.fasterxml.jackson.core:jackson-databind:2.13.4.2')
+    implementation ('commons-io:commons-io:2.7')
 }
 
 
