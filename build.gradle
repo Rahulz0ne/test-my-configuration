@@ -73,7 +73,7 @@ dependencies {
 
 
 
-    implementation("com.netflix.turbine:turbine-core:1.0.0")
+    implementation("com.netflix.turbine:turbine-core:1.0.0"){exclude group: 'org.codehaus.jackson', module: 'jackson-mapper-asl'}
         implementation("com.netflix.turbine:turbine-contrib:1.4.16"){exclude group:'log4j',module: 'log4j'}
     implementation("com.netflix.turbine:turbine-web:1.0.0"){exclude group: 'org.slf4j', module: 'slf4j-log4j12'}
     
@@ -96,7 +96,7 @@ dependencies {
     implementation ('com.fasterxml.jackson.core:jackson-databind:2.13.4.2')
     implementation ('commons-io:commons-io:2.7')
    implementation("com.thoughtworks.xstream:xstream:1.4.19")
-   implementation('org.apache.zookeeper:zookeeper:3.4.14'){exclude group: 'org.codehaus.jackson', module: 'jackson-mapper-asl'}
+   implementation('org.apache.zookeeper:zookeeper:3.4.14')
    implementation('org.codehaus.jettison:jettison:1.5.1')
    implementation ('junit:junit:4.13.1')
    implementation ('org.apache.logging.log4j:log4j:2.17.1')  
