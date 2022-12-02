@@ -61,27 +61,20 @@ configurations {
 }*/
 
 dependencies {
-    implementation platform("org.springframework.cloud:spring-cloud-dependencies:${springCloudVersion}")
+   implementation platform("org.springframework.cloud:spring-cloud-dependencies:${springCloudVersion}")
     implementation platform("org.springframework.boot:spring-boot-dependencies:${springBootVersion}")
     implementation("org.springframework.boot:spring-boot-starter-web")
     implementation("org.springframework.boot:spring-boot-starter-actuator")
 
     implementation("de.codecentric:spring-boot-admin-server:${springBootAdminVersion}")
     implementation("de.codecentric:spring-boot-admin-server-ui:${springBootAdminVersion}")
-    //implementation group: 'de.codecentric', name: 'spring-boot-admin-server', version: '2.7.3'
-    //implementation group: 'de.codecentric', name: 'spring-boot-admin-server-ui', version: '2.7.3'
 
-   
-    //implementation group: 'com.netflix.turbine', name: 'turbine-core', version: '2.0.0-DP.2'
-      
-    implementation("com.netflix.turbine:turbine-core:1.0.0"){exclude group: 'org.codehaus.jackson', module: 'jackson-mapper-asl'}
-        implementation("com.netflix.turbine:turbine-contrib:1.4.16"){exclude group:'log4j',module: 'log4j'}
-    implementation("com.netflix.turbine:turbine-web:1.0.0"){exclude group: 'org.slf4j', module: 'slf4j-log4j12'}
-    
-//  implementation("de.codecentric:spring-boot-admin-starter-server:${springBootAdminVersion}")
-    implementation("com.google.code.gson:gson:2.8.9")
-   // implementation("com.googlecode.json-simple:json-simple:1.1.1")
-    implementation("com.googlecode.json-simple:json-simple:1.1.1"){exclude group:'junit',module: 'junit'}
+    implementation("com.netflix.turbine:turbine-core:1.0.0")
+    implementation("com.netflix.turbine:turbine-contrib:1.0.0")
+    implementation("com.netflix.turbine:turbine-web:1.0.0")
+//    implementation("de.codecentric:spring-boot-admin-starter-server:${springBootAdminVersion}")
+    implementation("com.google.code.gson:gson:2.8.6")
+    implementation("com.googlecode.json-simple:json-simple:1.1.1")
 
 //    implementation("org.springframework.cloud:spring-cloud-starter-netflix-turbine:2.2.4.RELEASE")
 
@@ -90,19 +83,4 @@ dependencies {
     implementation("io.dropwizard.metrics:metrics-core:${metricsVersion}")
 
     providedRuntime("org.springframework.boot:spring-boot-starter-tomcat")
-    
-   // =========new dependency added=======
-    implementation ('org.yaml:snakeyaml:1.32')
-    implementation ('com.google.guava:guava:24.1.1-jre')
-   // implementation ('com.fasterxml.jackson.core:jackson-databind:2.13.4.2')
-   implementation group: 'com.fasterxml.jackson.core', name: 'jackson-databind', version: '2.14.1'
-    implementation ('commons-io:commons-io:2.7')
-   implementation("com.thoughtworks.xstream:xstream:1.4.19")
-   //implementation('org.apache.zookeeper:zookeeper:3.4.14')
-   implementation 'org.apache.zookeeper:zookeeper:3.8.0'
-   implementation('org.codehaus.jettison:jettison:1.5.1')
-   implementation ('junit:junit:4.13.1')
-   implementation ('org.apache.logging.log4j:log4j:2.17.1')  
-   implementation ('io.netty:netty-common:4.1.77.Final') 
-   
 }
