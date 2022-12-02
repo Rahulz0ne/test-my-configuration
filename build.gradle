@@ -1,86 +1,94 @@
 apply plugin: 'java'
+apply plugin: "io.spring.dependency-management"
 apply plugin: 'eclipse-wtp'
 apply plugin: 'idea'
-apply plugin: 'org.springframework.boot'
-apply plugin: 'io.spring.dependency-management'
-apply plugin: 'war'
 
 
-
-
-/*buildscript {
-    ext {
-        springBootVersion = '2.7.3'
-        springGradleDMVersion = '1.0.13.RELEASE'
-        springCloudVersion = '2021.0.3'
-
-        springBootAdminVersion = '2.7.3'
-        metricsVersion = "4.1.3"
-    }*/
 
 buildscript {
-    ext {
-        springBootVersion = '2.3.2.RELEASE'
-        springCloudVersion = 'Hoxton.SR5'
-        springBootAdminVersion = '2.3.0'
-        springDependencyManagementPluginVersion = "1.0.9.RELEASE"
-        metricsVersion = "4.1.3"
+    repositories {
+        mavenCentral()
+        maven { url "https://plugins.gradle.org/m2/" }
+
     }
-
-
     dependencies {
         classpath("org.springframework.boot:spring-boot-gradle-plugin:${springBootVersion}")
-        //classpath("io.spring.gradle:dependency-management-plugin:${springDependencyManagementPluginVersion}")
-        classpath("io.spring.gradle:dependency-management-plugin:1.0.13.RELEASE")
-
-        classpath("com.kenshoo:gradle-fpm:0.5")
+        classpath "io.spring.gradle:dependency-management-plugin:${springGradleDMVersion}"
+        classpath (group: 'net.saliman', name: 'gradle-cobertura-plugin', version:'2.2.7'){
+            exclude(module:'log4j')
+        }
+        classpath("org.sonarsource.scanner.gradle:sonarqube-gradle-plugin:2.0.1")
     }
 }
-java {
-    sourceCompatibility = JavaVersion.VERSION_11
-    targetCompatibility = JavaVersion.VERSION_11
-}
 
 
-//To set the build specific properties from gradle. 
+//To set the build specific properties from gradle.
 
 
 configurations {
-    providedRuntime
+    compile
     all*.exclude group: 'org.slf4j', module: 'log4j-over-slf4j'
     all*.exclude group: 'org.apache.logging.log4j', module: 'log4j-slf4j-impl'
-    all*.exclude group: 'org.slf4j', module: 'slf4j-log4j12'
-    all*.exclude group:'log4j',module: 'log4j',version: '2.17.1'
 }
 
-/*dependencyManagement {
-     imports {
-         mavenBom("org.springframework.cloud:spring-cloud-dependencies:" + springCloudVersion)
-         mavenBom("org.springframework.boot:spring-boot-dependencies:" + springBootVersion)
-     }
-}*/
+dependencyManagement {
+    imports {
+        //mavenBom 'org.springframework.cloud:spring-cloud-netflix:1.1.5.RELEASE'
+        mavenBom 'org.springframework.cloud:spring-cloud-netflix:1.3.5.RELEASE'
+    }
+}
 
 dependencies {
-   implementation platform("org.springframework.cloud:spring-cloud-dependencies:${springCloudVersion}")
-    implementation platform("org.springframework.boot:spring-boot-dependencies:${springBootVersion}")
-    implementation("org.springframework.boot:spring-boot-starter-web")
-    implementation("org.springframework.boot:spring-boot-starter-actuator")
 
-    implementation("de.codecentric:spring-boot-admin-server:${springBootAdminVersion}")
-    implementation("de.codecentric:spring-boot-admin-server-ui:${springBootAdminVersion}")
+    compile group: 'org.springframework.boot', name: 'spring-boot-starter-actuator'
+    compile group: 'org.springframework.boot', name: 'spring-boot-starter-aop'
+    compile group: 'org.springframework.boot', name: 'spring-boot-starter-web'
 
-    implementation("com.netflix.turbine:turbine-core:1.0.0")
-    implementation("com.netflix.turbine:turbine-contrib:1.0.0")
-    implementation("com.netflix.turbine:turbine-web:1.0.0")
-//    implementation("de.codecentric:spring-boot-admin-starter-server:${springBootAdminVersion}")
-    implementation("com.google.code.gson:gson:2.8.6")
-    implementation("com.googlecode.json-simple:json-simple:1.1.1")
+    compile group: 'org.springframework.cloud', name: 'spring-cloud-starter'
+    compile group: 'org.springframework.cloud', name: 'spring-cloud-starter-eureka'
+    compile group: 'org.springframework.cloud', name: 'spring-cloud-starter-hystrix'
 
-//    implementation("org.springframework.cloud:spring-cloud-starter-netflix-turbine:2.2.4.RELEASE")
+    compile (group: 'io.springfox', name: 'springfox-swagger2', version:'2.5.0')
+    compile group: 'io.springfox', name: 'springfox-swagger-ui', version:'2.5.0'
+    compile group: 'com.google.guava', name: 'guava', version:'18.0'
+    compile group: 'oro', name: 'oro', version:'2.0.8'
 
-    implementation("io.dropwizard.metrics:metrics-jvm:${metricsVersion}")
-    implementation("io.dropwizard.metrics:metrics-graphite:${metricsVersion}")
-    implementation("io.dropwizard.metrics:metrics-core:${metricsVersion}")
+    compile group: 'io.dropwizard.metrics', name: 'metrics-core', version:'3.1.2'
+    compile group: 'io.dropwizard.metrics', name: 'metrics-graphite', version:'3.1.2'
+    compile group: 'io.dropwizard.metrics', name: 'metrics-jvm', version:'3.1.2'
 
-    providedRuntime("org.springframework.boot:spring-boot-starter-tomcat")
+    compile group: 'org.apache.commons', name: 'commons-io', version:'1.3.2'
+    compile group: 'de.codecentric', name: 'spring-boot-admin-starter-client', version:'1.5.4'
+
+    compile 'org.projectlombok:lombok:1.16.20'
+
+    compile(group: 'org.apache.cxf', name: 'cxf-rt-frontend-jaxws', version:'3.1.8') {
+        exclude(module: 'asm')
+    }
+    compile group: 'org.apache.cxf', name: 'cxf-rt-frontend-simple', version:'3.1.8'
+    compile group: 'org.apache.cxf', name: 'cxf-rt-transports-http', version:'3.1.8'
+    compile(group: 'commons-validator', name: 'commons-validator', version:'1.3.1') {
+        exclude(module: 'xml-apis')
+    }
+    compile group: 'org.apache.cxf', name: 'cxf-tools-wsdlto-core', version:'3.1.8'
+    compile group: 'org.apache.cxf', name: 'cxf-tools-wsdlto-frontend-jaxws', version:'3.1.8'
+    compile group: 'org.apache.cxf', name: 'cxf-tools-wsdlto-databinding-jaxb', version:'3.1.8'
+    compile group: 'org.json', name: 'json', version: '20140107'
+
+    compile group: 'com.google.code.simple-spring-memcached', name: 'spring-cache', version: '3.1.0'
+    compile group: 'com.google.code.simple-spring-memcached', name: 'xmemcached-provider', version: '3.1.0'
+    compile group: 'com.amazonaws', name: 'elasticache-java-cluster-client', version: '1.1.0'
+
+    compile("com.netflix.archaius:archaius-core:0.7.3")
+    compile("com.netflix.archaius:archaius-aws:0.7.3")
+    compile("com.amazonaws:aws-java-sdk:1.11.95")
+    compile 'io.jsonwebtoken:jjwt:0.7.0'
+    compile group: 'com.paypal.sdk', name: 'rest-api-sdk', version: '1.14.0'
+    compile 'redis.clients:jedis:2.9.0'
+
+
+    testCompile group: 'org.springframework.boot', name: 'spring-boot-starter-test'
+
 }
+
+//~~~~~~~~~~ Start of Findbugs, PMD, and Java Code Coverage ~~~~~~~~~~//
