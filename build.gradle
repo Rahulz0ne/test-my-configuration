@@ -55,9 +55,9 @@ configurations {
     all*.exclude group: 'org.slf4j', module: 'slf4j-log4j12'
 }
 
-configurations.implementation {
+/*configurations.implementation {
     exclude group: 'log4j', module: 'log4j'
-}
+}*/
 
 /*dependencyManagement {
      imports {
