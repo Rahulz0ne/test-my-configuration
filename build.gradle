@@ -112,7 +112,7 @@ dependencies {
     implementation ('com.thoughtworks.xstream:xstream:1.4.19')
     implementation ('org.apache.zookeeper:zookeeper:3.8.0')
     implementation 'org.codehaus.jettison:jettison:1.5.2'
-
+    implementation 'org.codehaus.jackson:jackson-mapper-asl:1.9.13'
 }
 
 configurations.implementation {
