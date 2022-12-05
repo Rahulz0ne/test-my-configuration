@@ -105,7 +105,9 @@ dependencies {
     implementation ('com.fasterxml.jackson.core:jackson-databind:2.13.4.2')
     implementation ('commons-io:commons-io:2.7')
     implementation ('com.thoughtworks.xstream:xstream:1.4.19')
-    implementation ('org.apache.zookeeper:zookeeper:3.5.5')
+    implementation ('org.apache.zookeeper:zookeeper:3.5.5'){
+        exclude group: 'log4j', module: 'log4j'
+    }
     
     
 
