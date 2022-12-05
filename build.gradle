@@ -112,13 +112,13 @@ dependencies {
     implementation ('com.thoughtworks.xstream:xstream:1.4.19')
     implementation ('org.apache.zookeeper:zookeeper:3.8.0')
     implementation 'org.codehaus.jettison:jettison:1.5.2'
-    implementation 'org.codehaus.jackson:jackson-mapper-asl:1.9.13'
+   // implementation 'org.codehaus.jackson:jackson-mapper-asl:1.9.13'
 }
 
 configurations.implementation {
     exclude group: 'log4j', module: 'log4j'
     exclude group: 'org.slf4j', module: 'slf4j-log4j12'
-    exclude group: 'org.codehaus.jackson', module:'jackson-mapper-asl'
+   // exclude group: 'org.codehaus.jackson', module:'jackson-mapper-asl'
 }
 
 
