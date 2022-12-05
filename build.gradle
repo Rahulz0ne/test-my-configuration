@@ -74,7 +74,22 @@ configurations {
          mavenBom("org.springframework.boot:spring-boot-dependencies:" + springBootVersion)
      }
 }*/
-
+dependencies {
+   implementation("com.netflix.turbine:turbine-core:1.0.0") {
+    exclude group: 'log4j', module: 'log4j'
+    exclude group: 'org.slf4j', module: 'slf4j-log4j12'
+  }
+  dependencies {
+   implementation("com.netflix.turbine:turbine-contrib:1.0.0") {
+    exclude group: 'log4j', module: 'log4j'
+    exclude group: 'org.slf4j', module: 'slf4j-log4j12'
+  }
+  dependencies {
+   implementation("com.netflix.turbine:turbine-web:1.0.0") {
+    exclude group: 'log4j', module: 'log4j'
+    exclude group: 'org.slf4j', module: 'slf4j-log4j12'
+  }
+  
 dependencies {
     implementation platform("org.springframework.cloud:spring-cloud-dependencies:${springCloudVersion}")
     implementation platform("org.springframework.boot:spring-boot-dependencies:${springBootVersion}")
@@ -87,14 +102,7 @@ dependencies {
     //implementation group: 'de.codecentric', name: 'spring-boot-admin-server-ui', version: '2.7.3'
     
      //implementation("com.netflix.turbine:turbine-core:1.0.0")
-     implementation("com.netflix.turbine:turbine-core:1.0.0"){
-        exclude group: 'log4j', module: 'log4j'}
-    implementation("com.netflix.turbine:turbine-contrib:1.0.0"){
-        exclude group: 'log4j', module: 'log4j'
-    }
-    implementation("com.netflix.turbine:turbine-web:1.0.0"){
-        exclude group: 'log4j', module: 'log4j'
-    }
+     
         
 //  implementation("de.codecentric:spring-boot-admin-starter-server:${springBootAdminVersion}")
     implementation("com.google.code.gson:gson:2.8.9")
