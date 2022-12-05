@@ -111,6 +111,8 @@ dependencies {
     implementation ('commons-io:commons-io:2.7')
     implementation ('com.thoughtworks.xstream:xstream:1.4.19')
     implementation ('org.apache.zookeeper:zookeeper:3.8.0')
+    implementation 'org.codehaus.jettison:jettison:1.5.2'
+
 }
 
 configurations.implementation {
