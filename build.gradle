@@ -113,6 +113,7 @@ dependencies {
     implementation ('org.apache.zookeeper:zookeeper:3.8.0')
     implementation 'org.codehaus.jettison:jettison:1.5.2'
    // implementation 'org.codehaus.jackson:jackson-mapper-asl:1.9.13'
+   implementation group: 'io.netty', name: 'netty-common', version: '4.1.77.Final'
 }
 
 configurations.implementation {
