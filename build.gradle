@@ -102,6 +102,8 @@ dependencies {
         implementation ('io.netty:netty-transport-native-epoll:4.1.59.Final')
         implementation ('com.google.code.gson:gson:2.8.9')
         implementation ('org.codehaus.jettison:jettison:1.5.1')
+        implementation 'io.netty:netty-common:4.1.85.Final'
+
         
     }
 
