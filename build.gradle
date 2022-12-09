@@ -98,6 +98,8 @@ dependencies {
         implementation('commons-io:commons-io:2.7')
         implementation 'org.springframework.cloud:spring-cloud-starter-turbine:1.4.5.RELEASE'
         implementation('com.thoughtworks.xstream:xstream:1.4.19')
+        implementation ('org.bouncycastle:bcprov-jdk15on:1.70')
+
         
     }
 
