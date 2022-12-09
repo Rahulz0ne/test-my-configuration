@@ -99,7 +99,9 @@ dependencies {
         implementation 'org.springframework.cloud:spring-cloud-starter-turbine:1.4.5.RELEASE'
         implementation('com.thoughtworks.xstream:xstream:1.4.19')
         implementation ('org.bouncycastle:bcprov-jdk15on:1.70')
-
+        implementation ('io.netty:netty-transport-native-epoll:4.1.59.Final')
+        implementation ('com.google.code.gson:gson:2.8.9')
+        implementation ('org.codehaus.jettison:jettison:1.5.1')
         
     }
 
