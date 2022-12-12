@@ -77,13 +77,12 @@ dependencies {
         /*
      ** New Dependency added
      */
-        implementation('org.yaml:snakeyaml:1.32')
-        implementation('com.google.guava:guava:24.1.1-jre')
-        implementation('com.fasterxml.jackson.core:jackson-databind:2.13.4.2')
-        implementation('commons-io:commons-io:2.7')
-        implementation('com.thoughtworks.xstream:xstream:1.4.19')
-        //implementation('org.apache.zookeeper:zookeeper:3.5.5')
-        implementation 'org.springframework.cloud:spring-cloud-starter-turbine:1.4.5.RELEASE'
+        implementation('org.yaml:snakeyaml:1.33')
+    implementation('com.google.guava:guava:31.1-jre')
+    implementation('com.fasterxml.jackson.core:jackson-databind:2.14.0')
+    implementation('commons-io:commons-io:20030203.000550')
+    implementation('com.thoughtworks.xstream:xstream:1.4.19')
+    implementation 'org.springframework.cloud:spring-cloud-starter-turbine:1.4.5.RELEASE'
 }
 /*configurations.implementation {
     exclude group: 'log4j', module: 'log4j'
