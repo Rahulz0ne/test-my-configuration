@@ -4,108 +4,100 @@ apply plugin: 'idea'
 apply plugin: 'org.springframework.boot'
 apply plugin: 'io.spring.dependency-management'
 apply plugin: 'war'
-
-
-
-
+def warFileName = "ROOT.war"
+version = "${System.env.BUILD_NUMBER}"
 buildscript {
     ext {
         springBootVersion = '2.7.3'
         springGradleDMVersion = '1.0.13.RELEASE'
         springCloudVersion = '2021.0.3'
-
         springBootAdminVersion = '2.7.3'
         metricsVersion = "4.1.3"
     }
-
-/*buildscript {
-    ext {
-        springBootVersion = '2.3.2.RELEASE'
-        springCloudVersion = 'Hoxton.SR5'
-
-        springBootAdminVersion = '2.3.0'
-        springDependencyManagementPluginVersion = "1.0.9.RELEASE"
-
-        metricsVersion = "4.1.3"
-    }*/
-
-
-configurations.all {
-    resolutionStrategy.eachDependency { DependencyResolveDetails details ->
-        if (details.requested.name == 'log4j')
-        {
-         details.useTarget('org.slf4j:log4j-over-slf4j:1.7.5')
-        }
+    repositories {
+        mavenCentral()
+        maven { url "https://plugins.gradle.org/m2/" }
+        maven { url "https://repo.maven.apache.org/maven2" }
+        jcenter()
     }
-}
-
     dependencies {
         classpath("org.springframework.boot:spring-boot-gradle-plugin:${springBootVersion}")
-        //classpath("io.spring.gradle:dependency-management-plugin:${springDependencyManagementPluginVersion}")
         classpath("io.spring.gradle:dependency-management-plugin:1.0.13.RELEASE")
-
         classpath("com.kenshoo:gradle-fpm:0.5")
-        classpath("org.sonarsource.scanner.gradle:sonarqube-gradle-plugin:3.3")
-       
     }
 }
 java {
-    sourceCompatibility = JavaVersion.VERSION_11
-    targetCompatibility = JavaVersion.VERSION_11
+    sourceCompatibility = JavaVersion.VERSION_1_8
+    targetCompatibility = JavaVersion.VERSION_1_8
 }
-
-
+war {
+    enabled = true
+    archiveFileName = "ROOT.war"
+    destinationDirectory = new File("${rootDir}/runway/FS_ROOT/opt/tomcat/webapps")
+}
+clean {
+    delete "${rootDir}/runway/FS_ROOT/opt/tomcat/webapps"
+}
 //To set the build specific properties from gradle.
-
-
+processResources {
+    filesMatching("**/application.yml") {
+        expand (version: 'version', artifactId: 'springBootAdmin' )
+    }
+}
+repositories {
+    mavenCentral()
+    maven { url "https://plugins.gradle.org/m2/" }
+    maven { url "http://repo.maven.apache.org/maven2" }
+    jcenter()
+}
+springBoot {
+    mainClass = ("com.deepak.springbootadmin.SpringBootAdminApplication")
+}
 configurations {
     providedRuntime
     all*.exclude group: 'org.slf4j', module: 'log4j-over-slf4j'
     all*.exclude group: 'org.apache.logging.log4j', module: 'log4j-slf4j-impl'
     all*.exclude group: 'org.slf4j', module: 'slf4j-log4j12'
+    // all*.exclude group: 'log4j', module: 'log4j'
 }
-
+dependencies {
+    implementation group: 'joda-time', name: 'joda-time', version: '2.12.1'
+    implementation platform("org.springframework.cloud:spring-cloud-dependencies:${springCloudVersion}")
+    implementation platform("org.springframework.boot:spring-boot-dependencies:${springBootVersion}")
+    implementation("org.springframework.boot:spring-boot-starter-web")
+    implementation("org.springframework.boot:spring-boot-starter-actuator")
+    implementation("de.codecentric:spring-boot-admin-server:${springBootAdminVersion}")
+    implementation("de.codecentric:spring-boot-admin-server-ui:${springBootAdminVersion}")
+    implementation('com.netflix.turbine:turbine-core:1.0.0')
+    implementation("com.netflix.turbine:turbine-contrib:1.0.0")
+    implementation("com.netflix.turbine:turbine-web:1.0.0")
+//    implementation("de.codecentric:spring-boot-admin-starter-server:${springBootAdminVersion}")
+    implementation("com.google.code.gson:gson:2.8.6")
+    implementation("com.googlecode.json-simple:json-simple:1.1.1")
+//    implementation("org.springframework.cloud:spring-cloud-starter-netflix-turbine:2.2.4.RELEASE")
+    implementation("io.dropwizard.metrics:metrics-jvm:${metricsVersion}")
+    implementation("io.dropwizard.metrics:metrics-graphite:${metricsVersion}")
+    implementation("io.dropwizard.metrics:metrics-core:${metricsVersion}")
+    providedRuntime("org.springframework.boot:spring-boot-starter-tomcat")
+    /*
+ ** New Dependency added
+ */
+    implementation('org.yaml:snakeyaml:1.32')
+    implementation('com.google.guava:guava:24.1.1-jre')
+    implementation('com.fasterxml.jackson.core:jackson-databind:2.13.4.2')
+    implementation('commons-io:commons-io:2.7')
+    // implementation('com.thoughtworks.xstream:xstream:1.4.19')
+    // implementation('org.apache.zookeeper:zookeeper:3.5.5')
+    implementation 'org.springframework.cloud:spring-cloud-starter-turbine:1.4.5.RELEASE'
+}
 /*configurations.implementation {
     exclude group: 'log4j', module: 'log4j'
 }*/
-
-/*dependencyManagement {
-     imports {
-         mavenBom("org.springframework.cloud:spring-cloud-dependencies:" + springCloudVersion)
-         mavenBom("org.springframework.boot:spring-boot-dependencies:" + springBootVersion)
-     }
-}*/
-
-  
-dependencies {
-        implementation group: 'joda-time', name: 'joda-time', version: '2.12.1'
-        implementation platform("org.springframework.cloud:spring-cloud-dependencies:${springCloudVersion}")
-        implementation platform("org.springframework.boot:spring-boot-dependencies:${springBootVersion}")
-        implementation("org.springframework.boot:spring-boot-starter-web")
-        implementation("org.springframework.boot:spring-boot-starter-actuator")
-        implementation("de.codecentric:spring-boot-admin-server:${springBootAdminVersion}")
-        implementation("de.codecentric:spring-boot-admin-server-ui:${springBootAdminVersion}")
- implementation("de.codecentric:spring-boot-admin-starter-server:${springBootAdminVersion}")
-        implementation("com.google.code.gson:gson:2.8.6")
-        implementation("com.googlecode.json-simple:json-simple:1.1.1")
-        implementation("io.dropwizard.metrics:metrics-jvm:${metricsVersion}")
-        implementation("io.dropwizard.metrics:metrics-graphite:${metricsVersion}")
-        implementation("io.dropwizard.metrics:metrics-core:${metricsVersion}")
-        providedRuntime("org.springframework.boot:spring-boot-starter-tomcat")
-       // implementation('org.yaml:snakeyaml:1.32')
-        implementation('com.google.guava:guava:24.1.1-jre')
-        implementation('com.fasterxml.jackson.core:jackson-databind:2.13.4.2')
-        implementation('commons-io:commons-io:2.7')
-        implementation 'org.springframework.cloud:spring-cloud-starter-turbine:1.4.7.RELEASE'
-        implementation('com.thoughtworks.xstream:xstream:1.4.19')
-        implementation ('org.bouncycastle:bcprov-jdk15on:1.70')
-        implementation ('io.netty:netty-transport-native-epoll:4.1.59.Final')
-        implementation ('com.google.code.gson:gson:2.8.9')
-        implementation ('org.codehaus.jettison:jettison:1.5.1')
-        implementation 'io.netty:netty-common:4.1.85.Final'
-
-        
-    }
-
+task copyWar(type: Copy) {
+    from 'build/libs/'
+    into 'runway/FS_ROOT/opt/tomcat/webapps/'
+    include(warFileName)
+    rename(warFileName, 'ROOT.war')
+}
 
 
