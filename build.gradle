@@ -120,7 +120,7 @@ dependencies {
     implementation 'com.google.guava:guava@30.0-android:30.0-jre'
     implementation ('org.springframework:spring-beans:5.3.18')
    implementation ('ch.qos.logback:logback-classic:1.2.0') 
-   implementation ('io.netty:netty-codec-http:4.0.28.Final')
+    implementation 'io.netty:netty-codec-http:4.1.77.Final'
     implementation ('org.bouncycastle:bcprov-jdk15on:1.56')
 }
 configurations.all {
