@@ -101,7 +101,9 @@ dependencies {
         implementation ('com.google.code.gson:gson:2.8.9')
         implementation ('org.codehaus.jettison:jettison:1.5.1')
         implementation 'io.netty:netty-common:4.1.85.Final'
-		implementation ('de.codecentric:spring-boot-admin-server:2.7.8')
+	implementation ('de.codecentric:spring-boot-admin-server:2.7.8')
+	implementation ('org.springframework:spring-beans:5.3.18')
+   	implementation ('ch.qos.logback:logback-classic:1.2.0')
 
         
     }
