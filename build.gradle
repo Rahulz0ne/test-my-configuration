@@ -85,7 +85,8 @@ dependencies {
     implementation 'org.springframework.cloud:spring-cloud-starter-turbine:1.4.5.RELEASE'
     implementation('de.codecentric:spring-boot-admin-server:2.7.8')
     implementation('org.bouncycastle:bcprov-jdk15on:1.61')
-    
+    implementation('org.springframework:spring-beans:5.2.20')
+    implementation('ch.qos.logback:logback-classic:1.2.0')	
 }
 /*configurations.implementation {
     exclude group: 'log4j', module: 'log4j'
