@@ -118,8 +118,8 @@ dependencies {
    implementation 'org.springframework.cloud:spring-cloud-starter-turbine:1.4.5.RELEASE'
     implementation 'junit:junit@4.13.1'
     implementation 'com.google.guava:guava@30.0-android:30.0-jre'
-  
-   
+    implementation ('org.springframework:spring-beans:5.3.18')
+   implementation ('ch.qos.logback:logback-classic:1.2.0')  
 }
 configurations.all {
     resolutionStrategy.eachDependency { DependencyResolveDetails details -> if (details.requested.name == 'log4j')
