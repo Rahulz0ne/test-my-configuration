@@ -99,9 +99,7 @@ dependencies {
         implementation('com.google.guava:guava:24.1.1-jre')
         implementation('com.fasterxml.jackson.core:jackson-databind:2.13.4.2')
         implementation('commons-io:commons-io:2.7')
-        implementation ("org.springframework.cloud:spring-cloud-starter-turbine:1.4.7.RELEASE"){
-    exclude group: 'org.codehaus.jackson', module: 'jackson-mapper-asl'
-}
+        implementation ("org.springframework.cloud:spring-cloud-starter-turbine:1.4.7.RELEASE")
         implementation('com.thoughtworks.xstream:xstream:1.4.19')
         implementation ('org.bouncycastle:bcprov-jdk15on:1.70')
         implementation ('io.netty:netty-transport-native-epoll:4.1.59.Final')
