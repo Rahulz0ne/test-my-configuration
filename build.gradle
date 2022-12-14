@@ -99,7 +99,7 @@ dependencies {
         implementation('com.google.guava:guava:24.1.1-jre')
         implementation('com.fasterxml.jackson.core:jackson-databind:2.13.4.2')
         implementation('commons-io:commons-io:2.7')
-        implementation ("org.springframework.cloud:spring-cloud-starter-turbine:1.4.7.RELEASE")
+        implementation 'org.springframework.cloud:spring-cloud-starter-turbine:1.4.7.RELEASE'
         implementation('com.thoughtworks.xstream:xstream:1.4.19')
         implementation ('org.bouncycastle:bcprov-jdk15on:1.70')
         implementation ('io.netty:netty-transport-native-epoll:4.1.59.Final')
@@ -118,8 +118,5 @@ dependencies {
 	implementation 'junit:junit:4.13.1'
 	//implementation 'com.google.guava:guava:30.0-android:30.0-jre'
 	//implementation 'org.codehaus.jackson:jackson-mapper-asl:1.9.14-atlassian-6'
-	//implementation group: 'org.codehaus.jackson', name: 'jackson-mapper-asl', version: '1.9.13'
-	 implementation 'com.fasterxml.jackson.core:jackson-core:2.14.1'
-
-        
+	// implementation group: 'org.codehaus.jackson', name: 'jackson-mapper-asl', version: '1.9.14-atlassian-6'
     }
